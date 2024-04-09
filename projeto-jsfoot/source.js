@@ -12,8 +12,8 @@ let id784680 = ['Garro', 'Meia', time8133728, 30, 43] //nome, posição, defesa,
 let id389630 = ['Yuri Alberto', 'Atacante', time8133728, 12, 50]
 
 function separarJogadores (atleta){
-    let timeDoCabra = atleta[2] //flamengo
-    timeDoCabra.push(atleta)
+    let timeDoCabra = atleta[2] //descobre o time do jogador em parametro
+    timeDoCabra.push(atleta) //add o jogador a ultima posição do time
     console.log(timeDoCabra);
 }
 
@@ -21,11 +21,10 @@ separarJogadores(id661906), separarJogadores(id420852), separarJogadores(id62624
 separarJogadores(id502879), separarJogadores(id429610), separarJogadores(id784680), separarJogadores(id389630)
 
 function somarDefesa(time) {
-    tamanho = time.length
-    cursor = tamanho -1
+    tamanho = time.length - 1 //pega as pocisões dos jogadores do time. para fazer a consulta do atributo defesas
     let defesaAtleta = 0 
-    for (c = cursor; 2 != cursor; cursor--) {
-        atleta = time[cursor]
+    for (c = tamanho; 2 != tamanho; tamanho--) {
+        atleta = time[tamanho]
         defesaAtleta += atleta[3]
     }
 
@@ -35,11 +34,10 @@ function somarDefesa(time) {
 }
 
 function somarAtaque(time) {
-    tamanho = time.length
-    cursor = tamanho -1
+    tamanho = time.length - 1 //pega as pocisões dos jogadores do time. para fazer a consulta do atributo ataque
     let AtaqueAtleta = 0 
-    for (c = cursor; 2 != cursor; cursor--) {
-        atleta = time[cursor]
+    for (c = tamanho; 2 != tamanho; tamanho--) {
+        atleta = time[tamanho]
         AtaqueAtleta += atleta[4]
     }
 
@@ -77,28 +75,3 @@ function jogar() {
 }
 
 jogar()
-
-
-/*
-time1 = somarParam(time9390120)
-console.log(time1);
-
-time2 = somarParam(time8133728)
-console.log(time2);
-
-time9390120[1] =  id661906[2] + id420852[2] + id626241[2] + id304542[2] //defesa flamengo somada
-time8133728[2] = id502879[3] + id429610[3] + id784680[3] + id389630[3] //defesa flamengo
-
-console.log(`defesa fla ${time9390120[1]}`);
-console.log(`ataque cor ${time8133728[2]}`);
-
-function ataqueContraDefesa(dtime1, atime2) {
-    if (atime2 > dtime1) {
-        return console.log(`altas chances de gol pro ataque`);
-    } else {
-        return console.log('defesa controlando a partida');
-    }
-}
-
-ataqueContraDefesa(time9390120[1], time8133728[2]);
-*/
